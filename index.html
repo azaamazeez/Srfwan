@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('A2_image.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .welcome-container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            color: #fff;
+            max-width: 600px;
+        }
+
+        .welcome-container h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .welcome-container p {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .welcome-container button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .welcome-container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <h1>مرحباً بكم</h1>
+        <p>نرحب بكم في تطبيقنا لمعرفة أسعار صرف العملات في محافظة الرقة</p>
+        <button onclick="location.href='login.html'">اكتشف الأسعار</button>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
